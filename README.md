@@ -1,4 +1,4 @@
 # Plugin-Utilities
 
-Plugin-Utilities is a Library for the Minecrft-Plugin for Spigot/Bukkit
-I apload important code Files for my Plugins! 
+Plugin-Utilities is a Library for the Minecrft-Plugin Programming using Spigot/Bukkit API version 1.20.4.
+I upload important code Files for my Plugins you can download or copy and use it in your Plugin! 
