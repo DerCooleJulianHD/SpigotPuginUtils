@@ -8,7 +8,7 @@ import org.bukkit.plugin.Plugin;
 
 import java.io.File;
 
-public class Configuration /* Type: YAML-Configuration */ {
+public abstract class Config /* Type: YAML-Configuration */ {
 
     private final Plugin plugin;
     private File file;
@@ -39,6 +39,11 @@ public class Configuration /* Type: YAML-Configuration */ {
     
         try {
             file.createNewFile(); /* Creating Config File */
+            
+            loadConfiguration();
+            setDefaults();
+            save();
+            
         } catch (Exception exception) {
             /* Config File couldn't be created */
             Bukkit.getServer().getConsoleSender().sendMessage(plugin.getName() + ChatColor.RED + "Couldn't create file: " + file.getName() + ": " + exception.getCause());
@@ -69,6 +74,8 @@ public class Configuration /* Type: YAML-Configuration */ {
         }
         
     }
+
+    public abstract void setDefaults(); /* sets the default values when the config is created first */
 
     public Plugin getPlugin() {
         return plugin;
