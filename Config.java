@@ -16,7 +16,7 @@ public abstract class Config /* Type: YAML-Configuration */ {
     private boolean loaded, exist;
 
 
-    public Configuration(Plugin plugin, File directory, String name/* Name from File which will be created! */) {
+    public Config(Plugin plugin, File directory, String name/* Name from File which will be created! */) {
         
         this.plugin = plugin;
         
