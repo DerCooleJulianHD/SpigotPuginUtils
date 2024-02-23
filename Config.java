@@ -27,7 +27,7 @@ public abstract class Config /* Type: YAML-Configuration */ {
         }
         
         /* Directory Found */
-        this.file = new File(directory, name + ".yml");
+        this.file = new File(directory, name);
         
         this.exist = (directory.exists() && file.exists());
         this.loaded = false;
