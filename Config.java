@@ -34,8 +34,6 @@ public abstract class Config /* Type: YAML-Configuration */ {
     }
 
     public void createNewConfiguration() /* creates Configuration-File if it doesn't exist */ {
-        
-        if (file.exists()) return; /* check file existing */
     
         try {
             file.createNewFile(); /* Creating Config File */
