@@ -1,6 +1,6 @@
 package de.dercoolejulianhd.minigameapi.api.game;
 
-import de.dercoolejulianhd.minigameapi.api.MiniGame;
+import org.bukkit.*
 import de.dercoolejulianhd.minigameapi.api.game.configuration.GameConfig;
 import de.dercoolejulianhd.minigameapi.api.game.map.GameMap;
 import de.dercoolejulianhd.minigameapi.api.game.map.LocalGameMap;
@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Game implements GameInstance {
 
-    private final MiniGame plugin;
+    private final Plugin plugin;
     public final String name;
     public final boolean loadOnInit;
     private GameMap map;
@@ -26,7 +26,7 @@ public class Game implements GameInstance {
 
     private Location lobbyLocation;
 
-    public Game(MiniGame miniGame, String name, boolean loadOnInit) {
+    public Game(Plugin miniGame, String name, boolean loadOnInit) {
         this.plugin = miniGame;
         this.name = name;
         this.loadOnInit = loadOnInit;
