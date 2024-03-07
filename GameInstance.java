@@ -1,6 +1,6 @@
 package de.dercoolejulianhd.minigameapi.api.game;
 
-import de.dercoolejulianhd.minigameapi.api.MiniGame;
+import org.bukkit.*;
 import de.dercoolejulianhd.minigameapi.api.game.configuration.GameConfig;
 import de.dercoolejulianhd.minigameapi.api.game.map.GameMap;
 import org.bukkit.Location;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface GameInstance {
 
-    MiniGame getPlugin();
+    Plugin getPlugin();
     String getName();
     GameMap getMap();
 
@@ -25,8 +25,8 @@ public interface GameInstance {
     int getMinPlayers();
     int getMaxPlayers();
 
-    static File getDataFolder(MiniGame miniGame, String name) {
-        File dataFolder = miniGame.getGameManager().getDataFolder();
+    static File getDataFolder(Plugin plugin, String name) {
+        File dataFolder = plugin.getGameManager().getDataFolder();
         File folder = new File(dataFolder, name);
 
         if (!folder.exists()) folder.mkdir();
