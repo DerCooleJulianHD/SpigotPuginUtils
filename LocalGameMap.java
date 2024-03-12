@@ -1,8 +1,8 @@
-package de.dercoolejulianhd.pluginutilities.game;
+package de.dercoolejulianhd.minigame.bedwars.library.game;
 
-import de.dercoolejulianhd.pluginutilities.game.interfaces.GameInstance;
-import de.dercoolejulianhd.pluginutilities.game.interfaces.GameMap;
-import de.dercoolejulianhd.pluginutilities.game.interfaces.MiniGamePlugin;
+import de.dercoolejulianhd.minigame.bedwars.library.MiniGamePlugin;
+import de.dercoolejulianhd.minigame.bedwars.library.game.interfaces.GameInstance;
+import de.dercoolejulianhd.minigame.bedwars.library.game.interfaces.GameMap;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.World;

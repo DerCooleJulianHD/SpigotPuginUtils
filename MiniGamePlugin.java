@@ -1,6 +1,6 @@
-package de.dercoolejulianhd.pluginutilities.game.interfaces;
+package de.dercoolejulianhd.minigame.bedwars.library;
 
-import de.dercoolejulianhd.pluginutilities.game.GameManager;
+import de.dercoolejulianhd.minigame.bedwars.library.game.manager.GameManager;
 import org.bukkit.plugin.Plugin;
 
 public interface MiniGamePlugin {
@@ -9,7 +9,6 @@ public interface MiniGamePlugin {
 
     String getPrefix();
 
-    void load();
 
     GameManager getGameManager();
 

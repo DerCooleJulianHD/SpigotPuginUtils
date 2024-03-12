@@ -1,12 +1,15 @@
-package de.dercoolejulianhd.pluginutilities.game;
+package de.dercoolejulianhd.minigame.bedwars.library.game.config;
 
-import de.dercoolejulianhd.pluginutilities.game.interfaces.GameInstance;
-import de.dercoolejulianhd.pluginutilities.game.interfaces.MiniGamePlugin;
-import de.dercoolejulianhd.pluginutilities.utils.Config;
+import de.dercoolejulianhd.minigame.bedwars.library.MiniGamePlugin;
+import de.dercoolejulianhd.minigame.bedwars.library.game.Game;
+import de.dercoolejulianhd.minigame.bedwars.library.game.interfaces.GameInstance;
+import de.dercoolejulianhd.minigame.bedwars.library.utils.Config;
+import de.dercoolejulianhd.minigame.bedwars.plugin.teams.interfaces.MinigameTeam;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.scoreboard.Team;
 
 import javax.annotation.Nullable;
 import java.io.File;
@@ -19,6 +22,10 @@ public class GameConfig extends Config {
 
     public GameConfig(MiniGamePlugin plugin, File dataFolder, Game game) {
         super(plugin.getBukkitPlugin(), dataFolder, "settings.yml");
+
+        if (!exists()) createNewConfiguration();
+        if (!isLoaded()) loadConfiguration();
+
         this.miniGamePlugin = plugin;
         this.game = game;
     }
@@ -28,10 +35,6 @@ public class GameConfig extends Config {
     public void setDefaults() {
         ConfigurationSection data = getData();
         data.set("name", game.getName());
-
-        World world = game.getMap().getWorld();
-        data.set("world", world.getName());
-
         save();
     }
 
@@ -40,6 +43,18 @@ public class GameConfig extends Config {
         if (getConfiguration().getConfigurationSection(dataPath) == null) getConfiguration().createSection(dataPath);
 
         return getConfiguration().getConfigurationSection(dataPath);
+    }
+
+    public void addTeam(MinigameTeam team) {
+        ConfigurationSection teams = getData().getConfigurationSection("teams");
+        if (teams == null) return;
+
+        ConfigurationSection section = teams.createSection(team.getName());
+        section.set("name", team.getName());
+        section.set("color", team.getColor().name());
+        section.set("max-players", team.getMaxPlayers());
+
+        save();
     }
 
     public MiniGamePlugin getMiniGamePlugin() {
@@ -59,8 +74,8 @@ public class GameConfig extends Config {
     }
 
     @Nullable
-    public Location loadLocation(String name) {
-        ConfigurationSection locationSection = getData().getConfigurationSection(name);
+    public Location loadLocation(ConfigurationSection data, String name) {
+        ConfigurationSection locationSection = data.getConfigurationSection(name);
 
         if (locationSection == null) return null;
 
