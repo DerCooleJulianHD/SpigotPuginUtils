@@ -17,8 +17,7 @@ import java.util.logging.Level;
  * @since   1.0
  */
 
-@Description(" /* ! Type: YAML-Configuration ! */ ")
-public class Config {
+public class YAMLConfig {
 
     protected final File file, dir;
     protected FileConfiguration configuration;
@@ -28,7 +27,7 @@ public class Config {
      * Description:
      * Constructs a File and Directory for Config representation.
      */
-    public Config(File dir, String file) {
+    public YAMLConfig(File dir, String file) {
         this.dir = dir;
         this.file = new File(dir, file + ".yml");
     }
