@@ -27,9 +27,9 @@ public class YAMLConfig {
      * Description:
      * Constructs a File and Directory for Config representation.
      */
-    public YAMLConfig(File dir, String file) {
+    public YAMLConfig(File dir, String fileName) {
         this.dir = dir;
-        this.file = new File(dir, file + ".yml");
+        this.file = new File(dir, fileName + ".yml");
     }
 
 
@@ -164,7 +164,7 @@ public class YAMLConfig {
 
         ConfigurationSection cs = this.configuration.getConfigurationSection(section);
 
-        if (section == null) {
+        if (cs == null) {
             throw new NullPointerException("no objects found!");
         }
 
