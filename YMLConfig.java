@@ -60,6 +60,7 @@ public class YMLConfig implements Config {
             return;
         }
 
+        this.save();
         this.configuration = null;
     }
 
