@@ -98,7 +98,7 @@ public interface Config {
      * returns file-configuration which has loaded the file.
      */
     @Description("  /* returns file-configuration which has loaded the file */ ")
-    FileConfiguration getConfiguration();
+    FileConfiguration getFileConfig();
 
 
     /**
