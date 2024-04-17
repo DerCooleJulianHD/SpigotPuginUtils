@@ -145,7 +145,7 @@ public class YMLConfig implements Config {
     }
 
     @Override
-    public FileConfiguration getConfiguration() {
+    public FileConfiguration getFileConfig() {
         return this.configuration;
     }
 
