@@ -85,8 +85,8 @@ public class YMLConfig implements Config {
         }
 
         if (section == null) {
-            throw new NullPointerException("provided section could not be found in config: '" + this.file.getName());
-        }
+            throw new NullPointerException("provided section could not be found in config: '" + this.file.getName() + "'!");        
+}
 
         return section.get(path);
     }
@@ -103,7 +103,7 @@ public class YMLConfig implements Config {
         }
 
         if (section == null) {
-            throw new NullPointerException("provided section could not be found in config: '" + this.file.getName());
+            throw new NullPointerException("provided section could not be found in config: '" + this.file.getName() + "'!");
         }
 
         section.set(path, o);
