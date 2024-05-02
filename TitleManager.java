@@ -13,4 +13,11 @@ public class TitleManager {
         craftPlayer.getHandle().playerConnection.sendPacket(titlePacket);
         craftPlayer.getHandle().playerConnection.sendPacket(subtitlePacket);
     }
+
+
+    public static void sendActionBar(Player player, String title) {
+        IChatBaseComponent chatBaseComponent = IChatBaseComponent.ChatSerializer.a(title);
+        PacketPlayOutChat packetPlayOutChat = new PacketPlayOutChat(chatBaseComponent, (byte) 2);
+        ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packetPlayOutChat);
+    }
 }
