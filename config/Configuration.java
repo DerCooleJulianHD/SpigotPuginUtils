@@ -43,10 +43,6 @@ public abstract class Configuration {
         this.file = new File(dir, fileName + ".yml");
 
         this.defaults = new HashMap<>();
-        if (loadOnInit) {
-            if (!this.exists()) this.createConfigFiles(false, null);
-            this.load();
-        }
     }
 
     public native void onLoad();
