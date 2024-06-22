@@ -22,6 +22,8 @@ import java.util.logging.Level;
 @Description(" /* Uses Configuration type: YAMLConfiguration ! */ ")
 public abstract class Configiguration {
 
+    public static Logger logger = LogManager.getLogger(this.getClass());
+
     private final Plugin plugin;
     private final File file, dir;
     private FileConfiguration fileConfiguration;
@@ -45,6 +47,7 @@ public abstract class Configiguration {
      */
     @Description(" /* creates Configuration-Files and setup defaults when Config is created first */ ")
     public void createConfigFiles(boolean defaults, Map<ConfigurationSection, Map<String, Object>> values) {
+        this.onCreate();
         try {
             this.dir.mkdirs();
             this.file.createNewFile();
@@ -65,6 +68,7 @@ public abstract class Configiguration {
     @NotNull
     @Description("  /* loads configuration. */  ")
     public void load() {
+        this.onLoad();
         try {
             this.fileConfiguration = YamlConfiguration.loadConfiguration(this.file); /* load */
         } catch (Exception exception){
