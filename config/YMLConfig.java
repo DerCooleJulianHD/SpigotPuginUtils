@@ -20,7 +20,7 @@ import java.util.logging.Level;
  * @since   1.0
  */
 @Description(" /* Uses Configuration type: YAMLConfiguration ! */ ")
-public class YMLConfig {
+public abstract class Configiguration {
 
     private final Plugin plugin;
     private final File file, dir;
@@ -37,6 +37,8 @@ public class YMLConfig {
         }
     }
 
+    public native void onLoad();
+    public native void onCreate();
 
     /**
      * Description: creates Configuration-Files and setup defaults when Config is created first.
